@@ -62,7 +62,7 @@ def tong_sampah():
 # 3. Membuat Fungsi validasi input
 def validasi_alfabet(prompt): #validasi untuk input huruf
     while True:
-        inputan = input(prompt).strip()
+        inputan = input(prompt).strip().replace(" ","")
         if inputan.isalpha():
             return inputan
         else:
@@ -158,7 +158,7 @@ def filter_mobil():
         
         # Urutkan berdasarkan harga
         if pilihan == 1:
-            sort_order = validasi_alfabet("\nUrutkan harga dari rendah ke tinggi atau tinggi ke rendah? (rendah/tinggi): ").lower()
+            sort_order = validasi_alfabet("\nUrutkan harga dari rendah ke tinggi atau tinggi ke rendah? (rendah/tinggi): ").lower().strip()
             if sort_order == "rendah":
                 sorted_mobil = sorted(mobil_list, key=lambda x: x["Harga"])
             elif sort_order == "tinggi":
@@ -184,7 +184,7 @@ def filter_mobil():
 
         # Urutkan berdasarkan kapasitas
         elif pilihan == 3:
-            sort_order = validasi_alfabet("\nUrutkan kapasitas dari kecil ke besar atau besar ke kecil? (kecil/besar): ").lower()
+            sort_order = validasi_alfabet("\nUrutkan kapasitas dari kecil ke besar atau besar ke kecil? (kecil/besar): ").lower().strip()
             if sort_order == "kecil":
                 sorted_mobil = sorted(mobil_list, key=lambda x: x["Kapasitas"])
             elif sort_order == "besar":
